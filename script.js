@@ -8,7 +8,7 @@ let titleList=[
 "Get grooving!",
 "Your playlist awaits!",
 "Press play!"]
-let titleBar=titleList[Math.floor(Math.random()*titlelist.length)]
+let titleBar=titleList[Math.floor(Math.random()*titleList.length)]
 $('h1.title').text(titleBar)
 
 let currentsong = new Audio(src = 'songs/Dil Galti Kar Baitha Hai.mp3')
