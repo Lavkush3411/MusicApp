@@ -24,6 +24,7 @@ songList={
 4:['Maan Meri Jaan','songs/Maan Meri Jaan.mp3','covers/4.jpg'],
 5:['Raatan Lambiyan.mp3','songs/Raatan Lambiyan.mp3','covers/5.jpg']
 }
+totalSongs=5
 
 index=0
 for(let key in songList){
@@ -48,6 +49,7 @@ $('.pb').click(function (event) {
         playbutton.addClass('fa-pause')
         $(songInfo).css('opacity', 1)
         $(`#songText`).text(songList[newSongNum][0])
+        removeSongDurationAll()
     }
     else {
         $(this).addClass('fa-play')
@@ -63,6 +65,7 @@ $('.pb').click(function (event) {
 playbutton.click(function () {
     if (currentsong.paused || progressbar.val() == 0) {
         currentsong.play();
+        removeSongDurationAll()
         playbutton.removeClass('fa-play').addClass('fa-pause')
         $(songInfo).css('opacity', 1)
         $(`#${newSongNum}`).addClass('fa-pause').removeClass('fa-play')
@@ -89,7 +92,8 @@ function removePlayAll() {
 }
 
 function removeSongDurationAll() {
-    for (i = 1; i <= songList.length; i++) { $(`#songDuration${i}`).text('00:00') }
+
+    for (i = 1; i <= Object.keys(songList).length+1; i++) { $(`#songDuration${i}`).text('00:00') }
 }
 
 $(currentsong).on('timeupdate', function () {
