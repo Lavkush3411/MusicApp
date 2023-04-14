@@ -1,4 +1,4 @@
-let titlelist=[
+let titleList=[
 "Let's jam!",
 "Music awaits!",
 "Ready, set, listen!",
@@ -8,6 +8,8 @@ let titlelist=[
 "Get grooving!",
 "Your playlist awaits!",
 "Press play!"]
+let titleBar=titleList[Math.floor(Math.random()*titlelist.length)]
+$('h1.title').text(titleBar)
 
 let currentsong = new Audio(src = 'songs/Dil Galti Kar Baitha Hai.mp3')
 let playbutton = $('#mainPlay')
