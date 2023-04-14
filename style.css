@@ -1,0 +1,140 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap'); */
+body{
+    background-color: antiquewhite;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    
+}
+.nav ul{
+    display: flex;
+    align-items: center;
+    background-color: black;
+    height: 50px ;
+    color: wheat;
+
+}
+
+
+.nav ul li{
+    margin: 0px 10px;
+}
+.nav ul li span{
+    margin: 0 7px;
+    font-size: 1.3rem;
+}
+.nav-item1{
+    display: flex;
+    align-items: center;
+    color: aliceblue;
+    
+}
+.brand{
+    width: 40px;
+}
+.nav-item,.nav-item1{
+    list-style: none;}
+.container{
+    min-height: 61vh;
+    display: flex;
+    margin: 2% 25%;
+    border-radius: 12px;
+    padding: 20px;
+    background-size: 100% 100%;
+    background-image: url('bg.jpg');
+}
+.left{
+    color: aliceblue;
+    
+}
+.left .songItem img{
+    width: 30px;
+    margin: 5px;
+    border-radius: 5px;
+
+}
+.songItemList{
+    margin-top: 30px;
+}
+.songItem{
+    display: flex;
+    align-items: center;
+    color: black;
+    background-color: #fff;
+    margin: 10px;
+    margin-left: 0;
+    border-radius: 7px;
+    justify-content: space-between;
+}
+.songItem span{
+    margin: 0 5px;
+}
+.songItem .fa-solid{
+    color: black;
+    margin: 5px;
+}
+
+.songInfo{
+    position: absolute;
+    left: 10vw;
+    color: white;
+    opacity: 0;
+    transition: opacity 0.4s ease-in ;
+
+}
+
+
+
+.bottom{
+    position: sticky;
+    bottom:0;
+    height: 100px;
+    background-color: black;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#progressBar{
+    width: 80vw;
+}
+.fa-solid{
+    color: aliceblue;
+    cursor: pointer;
+}
+.play{
+    margin: 12px 5vw;
+}
+
+@media (max-width:600px) {
+    .container{
+        margin: 3% 1%;
+        border-radius: 0px;
+        background-image: none;
+        background-color: black;
+    }
+    .bottom{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height:120px ;
+    }
+    
+    .songInfo{
+        position:static;
+        left: 10vw;
+        color: white;
+        opacity: 0;
+        transition: opacity 0.4s ease-in ;
+    
+    }
+    
+}
+
+  
+  
+  
