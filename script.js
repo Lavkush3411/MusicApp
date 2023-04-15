@@ -17,12 +17,21 @@ let progressbar = $("#progressBar")
 let songInfo = $('.songInfo')
 let songItemList = $('.songItemList .songItem')
 let newSongNum = 1
+let audioBar=$('.volSlider')
+let unmuteButton=$('#vol-off')
+let muteButton=$('#vol-on')
+let currurntVolume=currentsong.volume
+
+let repeatoneButton=$("#repeatOne")
+let repeatallButon=$('#repeatMany')
+let repeatAll= true
+
 
 songList={
     // name, song location, coverphoto location
-1:['Dil Galti Kar Baitha Hai.mp3','songs/Dil Galti Kar Baitha Hai.mp3','covers/1.jpg'],
-2:['Har Har Shambhu Shiv Mahadeva','songs/Har Har Shambhu Shiv Mahadeva.mp3','covers/2.jpg'],
-3:['Kesariya','songs/Kesariya.mp3','covers/3.jpg'],
+1:['Dil Galti Kar Baitha','songs/Dil Galti Kar Baitha Hai.mp3','covers/1.jpg'],
+2:['Har Har Shambhu','songs/Har Har Shambhu Shiv Mahadeva.mp3','covers/2.jpg'],
+3:['Kesariya Tera Isaq','songs/Kesariya.mp3','covers/3.jpg'],
 4:['Maan Meri Jaan','songs/Maan Meri Jaan.mp3','covers/4.jpg'],
 5:['Raatan Lambiyan.mp3','songs/Raatan Lambiyan.mp3','covers/5.jpg']
 }
@@ -34,10 +43,6 @@ for(let key in songList){
     songItemList.find('.songName').eq(index).text(songList[key][0])
     index++;
 }
-
-
-
-
 $('.pb').click(function (event) {
     if ($(this).hasClass('fa-play')) {
         removePlayAll();
@@ -99,7 +104,14 @@ function removeSongDurationAll() {
 }
 
 $(currentsong).on('timeupdate', function () {
-    if (currentsong.currentTime == currentsong.duration) { next() }
+    if (currentsong.currentTime == currentsong.duration) { 
+        if (repeatAll){
+        next()}
+        else{
+            currentsong.play()
+        }
+     }
+
     progress = parseInt(currentsong.currentTime / currentsong.duration * 100)
     sec_pass = Math.floor(parseInt(currentsong.currentTime) % 60)
     min_pass = Math.floor(parseInt(currentsong.currentTime) / 60)
@@ -140,3 +152,50 @@ function prev() {
 
 $('#next').click(next)
 $('#prev').click(prev)
+
+// Audio Control
+
+audioBar.on('change',function(){
+    currentsong.volume=audioBar.val()/100
+    if (currentsong.volume!=0){
+    unmuteButton.addClass('hide')
+    muteButton.removeClass('hide')}
+    currurntVolume=currentsong.volume
+
+})
+
+muteButton.click(()=>{
+    unmuteButton.removeClass('hide')
+    muteButton.addClass('hide')
+    currurntVolume=currentsong.volume
+    currentsong.volume=0
+
+})
+
+unmuteButton.click(()=>{
+    unmuteButton.addClass('hide')
+    muteButton.removeClass('hide')
+    currentsong.volume=currurntVolume
+})
+
+// Repeatall vs Repeat one
+repeatoneButton.click(()=>{
+    repeatoneButton.toggleClass('hide')
+    repeatallButon.toggleClass('hide')
+    repeatAll=true
+    console.log(repeatAll)
+})
+
+repeatallButon.click(()=>{
+    repeatallButon.toggleClass('hide')
+    repeatoneButton.toggleClass('hide')
+    repeatAll=false // by default it's repeat all and when it's clicked it changes to repeat one that means this will be false
+    console.log(repeatAll)
+})
+
+
+
+
+
+
+

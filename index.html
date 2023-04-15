@@ -60,16 +60,30 @@
     <div class="bottom">
         <input type="range" name="progressBar" id="progressBar" min="0" value="0" step="0" max="100">
         <div class="songInfo">
-            <img src="playing.gif" width="50px" alt=""> <span id="songText"></span> 
+            <img src="new_playing.gif" width="70px" height="30px" alt=""> <span id="songText"></span> 
         </div>
         <div class="controls">
+
+            <img id="repeatOne" class="repeat hide " src="icons/repeat-1.svg" alt="">
+            <img id="repeatMany" class="repeat" src="icons/repeat.svg" alt="">
+            
+            
             <i class="miniPlay fa-solid fa-2x fa-arrow-left" id="prev"></i>
             <i class="miniPlay fa-solid fa-2x play fa-play" id="mainPlay"></i>
             <i class="miniPlay fa-solid fa-2x fa-arrow-right" id="next"></i>
+            
         </div>
+
+        <div class="volume">
+            <img  id="vol-off" width="30px" class="vol hide" src="icons/off_vol.svg" alt="">
+            <img  id="vol-on" width="30px" class="vol" src="icons/on_vol.svg" alt="">
+            <input type="range"  class="volSlider" height="0px" min="0" max="100" value="50">
+        </div>
+    
         
 
     </div>
+    <!-- <a href="https://www.flaticon.com/free-icons/repeat-once" title="repeat once icons">Repeat once icons created by IYAHICON - Flaticon</a> -->
     <script src="https://code.jquery.com/jquery-3.6.4.js"
         integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
     <script src="script.js"></script>
